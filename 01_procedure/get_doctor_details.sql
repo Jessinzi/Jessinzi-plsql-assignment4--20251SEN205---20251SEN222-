@@ -3,16 +3,15 @@ CREATE OR REPLACE PROCEDURE get_doctor_details (
 )
 AS
     TYPE t_doctor_tab IS TABLE OF doctors%ROWTYPE
-        INDEX BY PLS_INTEGER;          -- associative array
+        INDEX BY PLS_INTEGER;          
 
     v_doctors t_doctor_tab;
 BEGIN
     DBMS_OUTPUT.PUT_LINE('DOCTOR DETAILS');
     DBMS_OUTPUT.PUT_LINE('------------------------------');
 
-    -- BULK COLLECT fetches all matching rows in one go
-    SELECT *
-    BULK COLLECT INTO v_doctors
+    
+    SELECT * BULK COLLECT INTO v_doctors
     FROM doctors
     WHERE doc_id = p_doc_id;
 
