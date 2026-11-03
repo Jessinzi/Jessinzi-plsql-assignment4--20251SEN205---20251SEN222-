@@ -1,0 +1,1 @@
+EXEC get_doctor_details(9999);

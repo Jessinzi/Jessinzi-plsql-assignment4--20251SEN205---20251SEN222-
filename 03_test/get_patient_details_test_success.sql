@@ -1,0 +1,1 @@
+EXEC get_patient_details(1003);
