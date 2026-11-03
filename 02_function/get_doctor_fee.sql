@@ -19,7 +19,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Doctor not found.');
     END IF;
 
-    v_found := TRUE;      -- (optional, kept for clarity)
+    v_found := TRUE;      
     CLOSE c_fee;
 
     RETURN v_fee;
