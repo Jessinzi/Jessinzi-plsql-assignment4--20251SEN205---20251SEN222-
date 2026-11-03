@@ -17,17 +17,17 @@ AS
         WHERE a.patient_id = p_patient_id
         ORDER BY a.appt_date;
 
-    v_appt  c_appointments%ROWTYPE;   -- record matching cursor columns
+    v_appt  c_appointments%ROWTYPE;   
 
 BEGIN
     DBMS_OUTPUT.PUT_LINE('PATIENT APPOINTMENTS');
     DBMS_OUTPUT.PUT_LINE('------------------------------');
 
-    OPEN c_appointments;              -- OPEN
+    OPEN c_appointments;              
 
     LOOP
-        FETCH c_appointments INTO v_appt;   -- FETCH
-        EXIT WHEN c_appointments%NOTFOUND;  -- stop when no more rows
+        FETCH c_appointments INTO v_appt;   
+        EXIT WHEN c_appointments%NOTFOUND;  
 
         v_found := TRUE;
 
@@ -40,7 +40,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('------------------------------');
     END LOOP;
 
-    CLOSE c_appointments;             -- CLOSE
+    CLOSE c_appointments;            
 
     IF NOT v_found THEN
         DBMS_OUTPUT.PUT_LINE('No appointments found for this patient.');
@@ -48,7 +48,7 @@ BEGIN
 
 EXCEPTION
     WHEN OTHERS THEN
-        -- make sure cursor is closed if error occurs mid-loop
+     
         IF c_appointments%ISOPEN THEN
             CLOSE c_appointments;
         END IF;
