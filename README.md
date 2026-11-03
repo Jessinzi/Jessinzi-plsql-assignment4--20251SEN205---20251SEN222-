@@ -13,7 +13,7 @@
 
 - **Course:** Database Develpoment with PL/SQL
 - **Assignment:** Assignment IV – Records and Collections in Oracle PL/SQL
-- **Instructor: MANIRAGUHA Eric
+- **Instructor:** MANIRAGUHA Eric
 
 ---
 
