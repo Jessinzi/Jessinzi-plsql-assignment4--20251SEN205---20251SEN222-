@@ -1,8 +1,8 @@
 CREATE OR REPLACE PROCEDURE register_patients_bulk (
-    p_patient_ids    IN SYS.ODCINUMBERLIST,       -- collection of IDs
-    p_patient_names  IN SYS.ODCIVARCHAR2LIST,     -- collection of names
-    p_dobs           IN SYS.ODCIDATELIST,         -- collection of dates
-    p_phones         IN SYS.ODCIVARCHAR2LIST      -- collection of phones
+    p_patient_ids    IN SYS.ODCINUMBERLIST,       
+    p_patient_names  IN SYS.ODCIVARCHAR2LIST,     
+    p_dobs           IN SYS.ODCIDATELIST,        
+    p_phones         IN SYS.ODCIVARCHAR2LIST     
 )
 AS
     v_failed NUMBER := 0;
@@ -21,7 +21,7 @@ BEGIN
 
 EXCEPTION
     WHEN DUP_VAL_ON_INDEX THEN
-        -- FORALL stops at the first error by default
+      
         DBMS_OUTPUT.PUT_LINE('Error: One or more patient IDs/phones already exist.');
         DBMS_OUTPUT.PUT_LINE('Rows inserted before failure: ' || SQL%ROWCOUNT);
 
